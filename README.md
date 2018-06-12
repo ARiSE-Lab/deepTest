@@ -23,7 +23,11 @@ Read through and run [./install.sh](./install.sh)
 
 [metamorphictesting/](metamorphictesting/) 
 
+## Datasets
 
+* [HMB_3.bag](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2/HMB_3.bag.tar.gz.torrent)  
+* [CH2_001](https://github.com/udacity/self-driving-car/tree/master/datasets/CH2): Final Round Test Data
+  * [CH2_001 labels](https://github.com/udacity/self-driving-car/blob/master/challenges/challenge-2/CH2_final_evaluation.csv)
 ## Detected erroneous behaviors
 https://deeplearningtest.github.io/deepTest/
 
