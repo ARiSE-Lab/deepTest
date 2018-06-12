@@ -11,7 +11,7 @@ sudo apt-get install python2.7-dev python3.5-dev
 sudo apt-get install unzip
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
-sudo python -m pip install -U pip == 8.0.1
+sudo python -m pip install -U pip==8.0.1
 pip install --user numpy
 sudo apt-get install python-opencv
 pip install --user scipy
