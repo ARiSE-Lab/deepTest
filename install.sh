@@ -14,7 +14,6 @@ sudo python get-pip.py
 sudo python -m pip install -U pip == 8.0.1
 pip install --user numpy
 sudo apt-get install python-opencv
-cd ../../
 pip install --user scipy
 pip install --user scikit-learn
 pip install --user pillow
