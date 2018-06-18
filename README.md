@@ -10,9 +10,7 @@ Read through and run [./install.sh](./install.sh)
 
 [models/](models/)  
 
-* Rambo model  
-* Chauffeur model 
-* Epoch model  
+Reproducing Udacity self-driving car Challenge2<sup>[1]</sup> results for Rambo, Chauffeur and Epoch models.  
 
 
 [testgen/](testgen/)
@@ -25,9 +23,9 @@ Read through and run [./install.sh](./install.sh)
 [metamorphictesting/](metamorphictesting/) 
 
 ## Models and [Saved Weights](https://github.com/udacity/self-driving-car/tree/master/steering-models/evaluation)    
-* Rambo <sup>[1]</sup>  
-* Chauffeur <sup>[2]</sup>
-* Epoch <sup>[3]</sup>
+* Rambo <sup>[2]</sup>  
+* Chauffeur <sup>[3]</sup>
+* Epoch <sup>[4]</sup>
 
  
 ## Datasets
@@ -52,9 +50,12 @@ If you find DeepTest useful for your research, please cite the following [paper]
 ```
 ## References
 
-1.  **Rambo model**. <br />
+1.  **Udacity self driving car challenge 2**. <br /> 
+https://github.com/udacity/self-driving-car/tree/master/challenges/challenge-2. (2016).
+2.  **Rambo model**. <br />
 https://github.com/udacity/self-driving-car/tree/master/steering-models/community-models/rambo. (2016).
-2.  **Chauffeur model**. <br />
+3.  **Chauffeur model**. <br />
 https://github.com/udacity/self-driving-car/tree/master/steering-models/community-models/chauffeur. (2016).
-3.  **Epoch model**. <br />
+4.  **Epoch model**. <br />
 https://github.com/udacity/self-driving-car/tree/master/steering-models/community-models/cg23. (2016).
+
