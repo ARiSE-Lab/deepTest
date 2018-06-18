@@ -9,11 +9,11 @@ Read through and run [./install.sh](./install.sh)
 ## Code Directories
 
 [models/](models/)  
-(https://github.com/udacity/self-driving-car/tree/master/steering-models/evaluation)  
 
-* Epoch model  
-* Chauffeur model  
 * Rambo model  
+* Chauffeur model 
+* Epoch model  
+
 
 [testgen/](testgen/)
 
