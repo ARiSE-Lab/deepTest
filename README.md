@@ -11,7 +11,8 @@ Read through and run [./install.sh](./install.sh)
 [models/](models/)  
 
 Reproducing Udacity self-driving car Challenge2<sup>[1]</sup> results for Rambo, Chauffeur and Epoch models.  
-
+* Models and weights files are required to run these scripts.
+* For Rambo model, Keras backend should be changed to theano.  
 
 [testgen/](testgen/)
 
