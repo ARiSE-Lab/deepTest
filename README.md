@@ -8,7 +8,8 @@ Read through and run [./install.sh](./install.sh)
 
 ## Code Directories
 
-[models/](models/)
+[models/](models/)  
+(https://github.com/udacity/self-driving-car/tree/master/steering-models/evaluation)  
 
 * Epoch model  
 * Chauffeur model  
@@ -23,6 +24,12 @@ Read through and run [./install.sh](./install.sh)
 
 [metamorphictesting/](metamorphictesting/) 
 
+## Models and [Saved Weights](https://github.com/udacity/self-driving-car/tree/master/steering-models/evaluation)    
+* Rambo <sup>[1]</sup>  
+* Chauffeur <sup>[2]</sup>
+* Epoch <sup>[3]</sup>
+
+ 
 ## Datasets
 
 * [HMB_3.bag](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2/HMB_3.bag.tar.gz.torrent): Test dataset  
