@@ -33,6 +33,27 @@ Read through and run [./install.sh](./install.sh)
 * [HMB_3.bag](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2/HMB_3.bag.tar.gz.torrent): Test dataset  
 * [CH2_001](https://github.com/udacity/self-driving-car/tree/master/datasets/CH2): Final Test Data for challenge2
   * [CH2_001 labels](https://github.com/udacity/self-driving-car/blob/master/challenges/challenge-2/CH2_final_evaluation.csv)
+
+## Reproducing experiments
+
+### Dataset directory structure:  
+./Dataset/   
+├── hmb3/  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  └── hmb3_steering.csv  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  └── images  
+└── Ch2_001/  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  └── center/  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── images  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  └── CH2_final_evaluation.csv  
+
+<!---### Reproducing models--->
+
+<!---### Generate synthetic images and compute cumulative neuron coverage--->
+
+<!---### Combine transformations and synthesize images by guided search--->
+
+<!---### Identify erroneous behaviors by metamorphic testing--->
+
 ## Detected erroneous behaviors
 https://deeplearningtest.github.io/deepTest/
 
