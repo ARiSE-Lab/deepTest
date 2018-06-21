@@ -16,16 +16,16 @@ Read through and run [./install.sh](./install.sh)
 
 [testgen/](testgen/)
 * Generate synthetic images, calculate cumulative coverage and record predicted outputs
-* [ncoverage.py](testgen/ncoverage.py) <sup>[2]</sup> Define NCoverage class for computing neuron coverage. 
+* [ncoverage.py](testgen/ncoverage.py) Define NCoverage class for computing neuron coverage. 
 
 [guidedsearch/](guidedsearch/)  
 
 [metamorphictesting/](metamorphictesting/) 
 
 ## Models and [Saved Weights](https://github.com/udacity/self-driving-car/tree/master/steering-models/evaluation)    
-* Rambo <sup>[3]</sup>  
-* Chauffeur <sup>[4]</sup>
-* Epoch <sup>[5]</sup>
+* Rambo <sup>[2]</sup>  
+* Chauffeur <sup>[3]</sup>
+* Epoch <sup>[4]</sup>
 
  
 ## Datasets
@@ -52,11 +52,10 @@ If you find DeepTest useful for your research, please cite the following [paper]
 
 1.  **Udacity self driving car challenge 2**. <br /> 
 https://github.com/udacity/self-driving-car/tree/master/challenges/challenge-2. (2016).
-2. Pei, Kexin, et al. **Deepxplore: Automated whitebox testing of deep learning systems.** <br />
-3.  **Rambo model**. <br />
+2.  **Rambo model**. <br />
 https://github.com/udacity/self-driving-car/tree/master/steering-models/community-models/rambo. (2016).
-4.  **Chauffeur model**. <br />
+3.  **Chauffeur model**. <br />
 https://github.com/udacity/self-driving-car/tree/master/steering-models/community-models/chauffeur. (2016).
-5.  **Epoch model**. <br />
+4.  **Epoch model**. <br />
 https://github.com/udacity/self-driving-car/tree/master/steering-models/community-models/cg23. (2016).
 
