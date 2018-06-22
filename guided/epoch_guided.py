@@ -259,9 +259,9 @@ def epoch_guided(dataset_path):
         filewrite = "ab"
         print("initialize from files and continue from previous progress")
 
-    C = 0
-    P = 0
-    T = 0
+    C = 0 # covered neurons
+    P = 0 # covered percentage
+    T = 0 # total neurons
     transformations = [image_translation, image_scale, image_shear, image_rotation,
                        image_contrast, image_brightness2, image_blur]
     params = []
