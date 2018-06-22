@@ -15,10 +15,11 @@ Read through and run [./install.sh](./install.sh)
 * For Rambo model, Keras backend should be changed to theano.  
 
 [testgen/](testgen/)
-* Generate synthetic images, calculate cumulative coverage and record predicted outputs
+* Generate synthetic images, calculate cumulative coverage and record predicted outputs.
 * [ncoverage.py](testgen/ncoverage.py) Define NCoverage class for computing neuron coverage. 
 
-[guidedsearch/](guided/)  
+[guided/](guided/)  
+* Combine different transformations and leverage neuron coverage to guide the search.
 
 [metamorphictesting/](metamorphictesting/) 
 
