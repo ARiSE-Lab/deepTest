@@ -20,6 +20,7 @@ Read through and run [./install.sh](./install.sh)
 
 [guided/](guided/)  
 * Combine different transformations and leverage neuron coverage to guide the search.
+* Re-runing the script will continue the search instead of starting from the beginning except deleting all pkl files.
 
 [metamorphictesting/](metamorphictesting/) 
 
