@@ -16,7 +16,7 @@ Read through and run [./install.sh](./install.sh)
 
 [testgen/](testgen/)
 * Generate synthetic images, calculate cumulative coverage and record predicted outputs.
-* [ncoverage.py](testgen/ncoverage.py) Define NCoverage class for computing neuron coverage. 
+* [ncoverage.py](testgen/ncoverage.py): define NCoverage class for computing neuron coverage. 
 
 [guided/](guided/)  
 * Combine different transformations and leverage neuron coverage to guide the search.
