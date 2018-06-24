@@ -5,5 +5,5 @@ touch result/epoch_coverage_70000_images.csv
 for i in `seq 0 141`;
 do
         echo $i
-        python epoch_testgen_coverage.py --index $i --dataset $2
+        python epoch_testgen_coverage.py --index $i --dataset $1
 done    
