@@ -1,3 +1,6 @@
+'''
+Leverage neuron coverage to guide the generation of images from combinations of transformations.
+'''
 from __future__ import print_function
 import argparse
 import sys
@@ -19,6 +22,9 @@ reload(sys)
 sys.setdefaultencoding('ISO-8859-1')
 
 class Model(object):
+    '''
+    Rambo model with integrated neuron coverage
+    '''
     def __init__(self,
                  model_path,
                  X_train_mean_path):
@@ -89,6 +95,9 @@ class Model(object):
             return self.model.predict(X)[0][0]
 
     def predict1(self, img, transform, params):
+        '''
+        Rewrite predict method for computing and updating neuron coverage.
+        '''
         img_path = 'test.jpg'
         misc.imsave(img_path, img)
         img1 = load_img(img_path, grayscale=True, target_size=(192, 256))
@@ -153,7 +162,9 @@ class Model(object):
             #return 0, 0, self.model.predict(X)[0][0],rs1[0][0],rs2[0][0],rs3[0][0],0,0,0
 
     def hard_reset(self):
-
+        '''
+        Reset the coverage of three cnn sub-models
+        '''
         self.mean_angle = np.array([-0.004179079])
         #print self.mean_angle
         self.img0 = None
@@ -242,6 +253,9 @@ def image_blur(img, params):
     return blur
 
 def update_dict(dict1, covdict):
+    '''
+    Update neuron coverage dictionary dict1 with covered neurons in covdict
+    '''
     r = False
     for k in covdict.keys():
         if covdict[k] and not dict1[k]:
@@ -250,13 +264,18 @@ def update_dict(dict1, covdict):
     return r
 
 def is_update_dict(dict1, covdict):
-
+    '''
+    Return True if there are neurons covered in dictionary covdict but not covered in dict1
+    '''
     for k in covdict.keys():
         if covdict[k] and not dict1[k]:
             return True
     return False
 
 def get_current_coverage(covdict):
+    '''
+    Extract the covered neurons from the neuron coverage dictionary defined in ncoverage.py. 
+    '''
     covered_neurons = len([v for v in covdict.values() if v])
     total_neurons = len(covdict)
     return covered_neurons, total_neurons, covered_neurons / float(total_neurons)
@@ -294,7 +313,16 @@ def rambo_guided(dataset_path):
     dict3 = dict(model.nc3.cov_dict)
 
     flag = 0
-    if os.path.isfile("rambo_stack.pkl") and os.path.isfile("rambo_queue.pkl") and os.path.isfile("generated.pkl") and os.path.isfile("covdict1.pkl") and os.path.isfile("covdict2.pkl") and os.path.isfile("covdict3.pkl"):
+    #flag:0 start from beginning
+    #flag:1 initialize from pickle files
+
+    '''
+    Pickle files are used for continuing the search.
+    Delete all pkl files and generated images for starting from the beginnning.
+    '''
+    if os.path.isfile("rambo_stack.pkl") and os.path.isfile("rambo_queue.pkl") \
+                    and os.path.isfile("generated.pkl") and os.path.isfile("covdict1.pkl") \
+                    and os.path.isfile("covdict2.pkl") and os.path.isfile("covdict3.pkl"):
         with open('rambo_stack.pkl', 'rb') as input:
             rambo_stack = pickle.load(input)
         with open('rambo_queue.pkl', 'rb') as input:
@@ -308,8 +336,6 @@ def rambo_guided(dataset_path):
         with open('covdict3.pkl', 'rb') as input:
             dict3 = pickle.load(input)
         flag = 1
-    else:
-        flag = 0
 
     if flag == 0:
         rambo_queue = deque()
@@ -329,14 +355,19 @@ def rambo_guided(dataset_path):
     transformations = [image_translation, image_scale, image_shear, image_rotation,
                        image_contrast, image_brightness, image_blur]
     params = []
-    params.append(list(xrange(-201, 201)))
+    params.append(list(xrange(-50, 50)))
     params.append(list(map(lambda x: x*0.1, list(xrange(5, 20)))))
-    params.append(list(map(lambda x: x*0.1, list(xrange(-21, 21)))))
-    params.append(list(xrange(-170, 170)))
-    params.append(list(map(lambda x: x*0.1, list(xrange(1, 100)))))
-    params.append(list(xrange(-101, 101)))
+    params.append(list(map(lambda x: x*0.1, list(xrange(-5, 5)))))
+    params.append(list(xrange(-30, 30)))
+    params.append(list(map(lambda x: x*0.1, list(xrange(1, 30)))))
+    params.append(list(xrange(-21, 21)))
     params.append(list(xrange(1, 11)))
     
+    '''
+    Considering that Rambo model uses queue of length 2 to keep the predicting status, 
+    we took three continuous images as an image group and applied same transformations on 
+    all of the three images in an image group.
+    '''
 
     with open('result/rambo_rq3_100_2_1.csv', filewrite, 0) as csvfile:
         writer = csv.writer(csvfile, delimiter=',',
@@ -511,7 +542,7 @@ def rambo_guided(dataset_path):
                             # Re-runing the script will continue from previous progree.
                             if generated % 100 == 0 or exitcount % 200 == 0:
                                 exit()
-                            '''                            
+                            '''
                             break
                         else:
                             print("Generated image group does not increase coverage.")
