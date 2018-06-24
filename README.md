@@ -4,6 +4,7 @@ DeepTest is a systematic testing tool for automatically detecting erroneous beha
 
 ## Install Required Packages
 
+OS: Ubuntu 16.04  
 Read through and run [./install.sh](./install.sh)
 
 ## Code Directories
@@ -48,12 +49,29 @@ Read through and run [./install.sh](./install.sh)
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── images  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  └── CH2_final_evaluation.csv  
 
-<!---### Reproducing models--->
-
-<!---### Generate synthetic images and compute cumulative neuron coverage--->
-
-<!---### Combine transformations and synthesize images by guided search--->
-
+### Evaluating models' accuracy on existing test data
+```
+cd models/
+python epoch_reproduce.py --dataset DATA_PATH/Dataset/
+python chauffeur_reproduce.py --dataset DATA_PATH/Dataset/
+python rambo_reproduce.py --dataset DATA_PATH/Dataset/
+```
+### Generate synthetic images and compute cumulative neuron coverage
+```
+cd testgen/
+./epoch_testgen_driver.sh 'DATA_PATH/Dataset/'
+./chauffeur_testgen_driver.sh 'DATA_PATH/Dataset/'
+python rambo_testgen_coverage.py --dataset DATA_PATH/Dataset/
+```
+### Combine transformations and synthesize images by guided search
+```
+cd guided/
+mkdir new/
+rm -rf *.pkl
+python epoch_guided.py --dataset DATA_PATH/Dataset/
+python chauffeur_guided.py --dataset DATA_PATH/Dataset/
+python rambo_guided.py --dataset DATA_PATH/Dataset/
+```
 <!---### Identify erroneous behaviors by metamorphic testing--->
 
 ## Detected erroneous behaviors
