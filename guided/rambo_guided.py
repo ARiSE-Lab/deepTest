@@ -317,7 +317,7 @@ def rambo_guided(dataset_path):
     #flag:1 initialize from pickle files
 
     '''
-    Pickle files are used for continuing the search.
+    Pickle files are used for continuing the search after rerunning the script.
     Delete all pkl files and generated images for starting from the beginnning.
     '''
     if os.path.isfile("rambo_stack.pkl") and os.path.isfile("rambo_queue.pkl") \
@@ -359,7 +359,7 @@ def rambo_guided(dataset_path):
     params.append(list(map(lambda x: x*0.1, list(xrange(5, 20)))))
     params.append(list(map(lambda x: x*0.1, list(xrange(-5, 5)))))
     params.append(list(xrange(-30, 30)))
-    params.append(list(map(lambda x: x*0.1, list(xrange(1, 30)))))
+    params.append(list(map(lambda x: x*0.1, list(xrange(1, 20)))))
     params.append(list(xrange(-21, 21)))
     params.append(list(xrange(1, 11)))
     

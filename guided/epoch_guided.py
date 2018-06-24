@@ -236,7 +236,17 @@ def epoch_guided(dataset_path):
             newlist.append(file)
 
     flag = 0
-    if os.path.isfile("epoch_covdict2.pkl") and os.path.isfile("epoch_stack.pkl") and os.path.isfile("epoch_queue.pkl") and os.path.isfile("generated.pkl"):
+    #flag:0 start from beginning
+    #flag:1 initialize from pickle files
+
+    '''
+    Pickle files are used for continuing the search after rerunning the script.
+    Delete all pkl files and generated images for starting from the beginnning.
+    '''
+    if os.path.isfile("epoch_covdict2.pkl") and \
+            os.path.isfile("epoch_stack.pkl") and \
+            os.path.isfile("epoch_queue.pkl") and \
+            os.path.isfile("generated.pkl"):
         with open('epoch_covdict2.pkl', 'rb') as input:
             covdict = pickle.load(input)
         with open('epoch_stack.pkl', 'rb') as input:
@@ -265,12 +275,12 @@ def epoch_guided(dataset_path):
     transformations = [image_translation, image_scale, image_shear, image_rotation,
                        image_contrast, image_brightness2, image_blur]
     params = []
-    params.append(list(xrange(-401, 401)))
+    params.append(list(xrange(-50, 50)))
     params.append(list(map(lambda x: x*0.1, list(xrange(5, 20)))))
-    params.append(list(map(lambda x: x*0.1, list(xrange(-21, 21)))))
-    params.append(list(xrange(-170, 170)))
-    params.append(list(map(lambda x: x*0.1, list(xrange(1, 100)))))
-    params.append(list(xrange(-101, 101)))
+    params.append(list(map(lambda x: x*0.1, list(xrange(-5, 5)))))
+    params.append(list(xrange(-30, 30)))
+    params.append(list(map(lambda x: x*0.1, list(xrange(1, 20)))))
+    params.append(list(xrange(-21, 21)))
     params.append(list(xrange(1, 11)))
 
     maxtrynumber = 10

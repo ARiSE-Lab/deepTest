@@ -1,3 +1,6 @@
+'''
+Leverage neuron coverage to guide the generation of images from combinations of transformations.
+'''
 from __future__ import print_function
 import argparse
 import numpy as np
@@ -20,6 +23,9 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 # keras 1.2.2 tf:1.2.0
 class ChauffeurModel(object):
+    '''
+    Chauffeur model with integrated neuron coverage
+    '''
     def __init__(self,
                  cnn_json_path,
                  cnn_weights_path,
@@ -216,12 +222,6 @@ def image_brightness2(img, params):
     new_img = cv2.merge((b, g, r))
     return new_img
 
-def get_current_coverage(covdict):
-    covered_neurons = len([v for v in covdict.values() if v])
-    total_neurons = len(covdict)
-    return covered_neurons, total_neurons, covered_neurons / float(total_neurons)
-
-
 def chauffeur_guided(dataset_path):
     model_name = "cnn"
     image_size = (128, 128)
@@ -258,7 +258,17 @@ def chauffeur_guided(dataset_path):
         if file.endswith(".jpg"):
             newlist.append(file)
     flag = 0
-    if os.path.isfile("chauffeur_covdict2.pkl") and os.path.isfile("chauffeur_stack.pkl") and os.path.isfile("chauffeur_queue.pkl") and os.path.isfile("generated.pkl"):
+    #flag:0 start from beginning
+    #flag:1 initialize from pickle files
+
+    '''
+    Pickle files are used for continuing the search after rerunning the script.
+    Delete all pkl files and generated images for starting from the beginnning.
+    '''
+    if os.path.isfile("chauffeur_covdict2.pkl") and \
+                os.path.isfile("chauffeur_stack.pkl") and \
+                os.path.isfile("chauffeur_queue.pkl") and \
+                os.path.isfile("generated.pkl"):
         with open('chauffeur_covdict2.pkl', 'rb') as input:
             covdict = pickle.load(input)
         with open('chauffeur_stack.pkl', 'rb') as input:
@@ -286,12 +296,12 @@ def chauffeur_guided(dataset_path):
     transformations = [image_translation, image_scale, image_shear,
                        image_rotation, image_contrast, image_brightness2, image_blur]
     params = []
-    params.append(list(xrange(-401, 401)))
+    params.append(list(xrange(-50, 50)))
     params.append(list(map(lambda x: x*0.1, list(xrange(5, 20)))))
-    params.append(list(map(lambda x: x*0.1, list(xrange(-21, 21)))))
-    params.append(list(xrange(-170, 170)))
-    params.append(list(map(lambda x: x*0.1, list(xrange(1, 100)))))
-    params.append(list(xrange(-101, 101)))
+    params.append(list(map(lambda x: x*0.1, list(xrange(-5, 5)))))
+    params.append(list(xrange(-30, 30)))
+    params.append(list(map(lambda x: x*0.1, list(xrange(1, 20)))))
+    params.append(list(xrange(-21, 21)))
     params.append(list(xrange(1, 11)))
 
     maxtrynumber = 10
