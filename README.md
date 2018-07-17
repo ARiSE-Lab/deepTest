@@ -38,10 +38,10 @@ Read through and run [./install.sh](./install.sh)
   * [CH2_001 labels](https://github.com/udacity/self-driving-car/blob/master/challenges/challenge-2/CH2_final_evaluation.csv)
 
 ### Generate hmb3 dataset from HMB_3.bag
-'''
+```
 mkdir hmb3
 python generate_hmb3.py --bagfile HMB_3.bag
-'''
+```
 ## Reproducing experiments
 
 ### Dataset directory structure:  
