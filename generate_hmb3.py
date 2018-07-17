@@ -1,5 +1,7 @@
 '''
 Generate images and steering angles from hmb3.bag
+Modified from
+https://github.com/udacity/self-driving-car/blob/master/steering-models/evaluation/generator.py
 '''
 import argparse
 import rosbag
